@@ -126,10 +126,15 @@ void preBmGs(char *x, int m, int bmGs[]) {
             }
         }
     }
+    // In ra bảng bmGs sau bước này
+    printf("\nGood Suffix Table after first pass:\n");
+    for (i = 0; i < m; i++)
+        printf("bmGs[%d] = %d\n", i, bmGs[i]);
 
     for (i = 0; i <= m - 2; ++i)
         bmGs[m - 1 - suff[i]] = m - 1 - i;
-
+    // In ra bảng bmGs sau bước này
+    printf("\nGood Suffix Table after second pass:\n");
     for (i = 0; i < m; i++)
         printf("bmGs[%d] = %d\n", i, bmGs[i]);
 
@@ -170,5 +175,6 @@ int main() {
     char text[] = "abcababcababc";
     char pattern[] = "abcab";
     BM(pattern, strlen(pattern), text, strlen(text));
+
     return 0;
 }
